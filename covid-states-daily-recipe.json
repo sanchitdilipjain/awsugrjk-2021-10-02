@@ -1,0 +1,88 @@
+[
+  {
+    "Action": {
+      "Operation": "FORMAT_DATE",
+      "Parameters": {
+        "sourceColumn": "date",
+        "targetDateFormat": "yyyy-mm-dd"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "LOWER_CASE",
+      "Parameters": {
+        "sourceColumn": "state"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "FILL_WITH_CUSTOM",
+      "Parameters": {
+        "columnDataType": "int",
+        "sourceColumn": "deathProbable",
+        "value": "0"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "FILL_WITH_CUSTOM",
+      "Parameters": {
+        "columnDataType": "int",
+        "sourceColumn": "hospitalized",
+        "value": "0"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "SPLIT_COLUMN_SINGLE_DELIMITER",
+      "Parameters": {
+        "includeInSplit": "true",
+        "limit": "2",
+        "pattern": "-",
+        "sourceColumn": "date"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "RENAME",
+      "Parameters": {
+        "sourceColumn": "date_1",
+        "targetColumn": "year"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "RENAME",
+      "Parameters": {
+        "sourceColumn": "date_2",
+        "targetColumn": "month"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "RENAME",
+      "Parameters": {
+        "sourceColumn": "date_3",
+        "targetColumn": "date"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "REPLACE_WITH_CUSTOM",
+      "Parameters": {
+        "advancedDataType": "Not Found",
+        "columnDataType": "string",
+        "sourceColumn": "month",
+        "value": "March"
+      }
+    }
+  }
+]
